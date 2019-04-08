@@ -60,4 +60,7 @@ typings/
 # dotenv environment variables file
 .env
 
-
+# divers
+.zip
+.pdf
+.DS_Store
