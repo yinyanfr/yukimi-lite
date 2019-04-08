@@ -35,10 +35,14 @@ class Main extends Component{
             })
     }
 
+    onYukimi = () => {
+        window.scrollTo(0, 0)
+    }
+
     render(){
         return (
             <div>
-                <img src={yukimi} className="yukimi"/>
+                <img src={yukimi} className="yukimi" onClick={this.onYukimi}/>
                 <Yukimi data={this.state.data} />
             </div>
         )
