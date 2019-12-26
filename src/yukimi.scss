@@ -1,126 +1,53 @@
-#logopage{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    align-content: center;
+.yukimi-setting-wrapper {
+  background-color: white;
+
+  position: sticky;
+  top: 0;
+
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+
+  margin-bottom: 15px;
 }
 
-.logged-buttons{
-    display: flex;
-    flex-direction: column;
+.yukimi-setting {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 750px;
+  margin: 0 auto;
+
+  font-size: 200%;
 }
 
-.pls{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: space-between;
+.yukimi-panel {
+  width: 550px;
+  margin: 0 auto;
 }
 
-.onepl{
-    margin-top: 10px;
-    margin-bottom: 10px;
+@media screen and (max-width: 750px){
+  .yukimi-setting {
+    width: 100vw;
+  }
+
+  .yukimi-panel {
+    width: 100vw;
+  }
 }
 
-.main-burger{
-    text-align: right;
+.yukimi-content {
+  margin: 0 auto;
+  width: 900px;
 }
 
-.list-tab{
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+@media screen and (max-width: 900px){
+  .yukimi-content {
+    width: 100vw;
+    padding: 10px;
+  }
 }
 
-.add-pl{
-    height: 150%;
-    justify-self: flex-end;
-    flex-grow: 1;
-    flex-shrink: 2;
-}
-
-.zi-panel{
-    padding: 0 15px;
-}
-
-.zi-panel-margin{
-    margin-top: 10px
-}
-
-nav{
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-    margin-bottom: 10px;
-}
-
-.navbar-burger{
-    border: none;
-    background-color: white;
-}
-
-.logopic{
-    width: 50%;
-    margin-bottom: 50px;
-}
-
-.pl-status-head{
-    font-size: 100%;
-}
-
-.input-round{
-    border-radius: 10pt;
-}
-
-.break-letter{
-    word-break: break-all;
-}
-
-.card-margin{
-    margin-bottom: 10px;
-}
-
-#songlist{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.big-end-button{
-    margin-bottom: 10px; 
-    font-size: 150%;
-}
-
-.pl-playing{
-    color: white;
-    background-color: #00d1b2;
-}
-
-.margin-top-ten{
-    margin-top: 10px;
-}
-
-.yukimi{
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-
-
-@media only screen and (min-width: 768px){
-    body{
-        margin-left: auto;
-        margin-right: auto;
-        width: 768px;
-    }
-    
-    .tabs{
-        margin-top: 10px;
-    }
-
-    .yukimi{
-        display: inline;
-    }
+.yukimi-buttons {
+  display: flex;
+  justify-content: space-around;
 }

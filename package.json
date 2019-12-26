@@ -1,40 +1,19 @@
 {
   "name": "yukimi",
-  "version": "0.0.2",
-  "babel": {
-    "presets": [
-      "env",
-      "react"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-object-rest-spread"
-    ]
-  },
-  "description": "I was about to call this project \"Whisperer\" before I found over 400 reps with the same name.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yinyanfr/Sajo_Yukimi.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yinyanfr/Sajo_Yukimi/issues"
-  },
-  "homepage": "https://github.com/yinyanfr/Sajo_Yukimi#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "bulma": "^0.7.4",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
-    "react-player": "^1.10.0"
-  },
-  "devDependencies": {
-    "babel-polyfill": "^6.26.0",
-    "node-sass": "^4.11.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bulma": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-markdown": "^4.2.2",
+    "react-scripts": "3.3.0",
+    "react-select": "^3.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,10 +24,17 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:20200"
 }
