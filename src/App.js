@@ -7,6 +7,8 @@ const App = () => {
   const [chs, setChs] = useState("")
   const [cht, setCht] = useState("")
   const [lang, setLang] = useState(localStorage.getItem("lang") || "chs")
+  const [font, setFont] = useState(localStorage.getItem("font") || "default")
+  const [fontSize, setFontSize] = useState(localStorage.getItem("fontSize") || "100%")
 
   useEffect(() => {
     fetch("/content")
@@ -26,7 +28,9 @@ const App = () => {
         chs, cht,
         setChs,
         setCht,
-        lang, setLang
+        lang, setLang,
+        font, setFont,
+        fontSize, setFontSize
       }}>
         <Yukimi />
       </YukimiContext.Provider>

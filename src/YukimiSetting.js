@@ -4,7 +4,9 @@ import YukimiContext from './YukimiContext'
 const YukimiSetting = () => {
 
     const {
-        lang, setLang
+        lang, setLang,
+        font, setFont,
+        fontSize, setFontSize
     } = useContext(YukimiContext)
 
     const [panel, setPanel] = useState(null)
@@ -21,6 +23,16 @@ const YukimiSetting = () => {
     const changeLang = which => e => {
         setLang(which)
         localStorage.setItem("lang", which)
+    }
+
+    const changeFont = which => e => {
+        setFont(which)
+        localStorage.setItem("font", which)
+    }
+
+    const changeFontSize = which => e => {
+        setFontSize(which)
+        localStorage.setItem("fontSize", which)
     }
 
     return (
@@ -72,9 +84,88 @@ const YukimiSetting = () => {
                                                         </button>
                                                     </div>
                                                 </div>
+                                                <p className="help">简繁转换由谷歌翻译提供</p>
                                             </>
                                         )
                                         : ""
+                                }
+
+                                {
+                                    panel === "font"
+                                    ? (
+                                        <>
+
+                                        <label className="label">
+                                                    {lang === "chs" ? "字号" : "字號"}
+                                                </label>
+                                                <div className="control">
+                                                    <div className="yukimi-buttons">
+                                                        {
+                                                            ["100%", "125%", "150%", "175%", "200%"]
+                                                            .map((e, i) => (
+                                                                <span
+                                                                    key={i}
+                                                                    className={
+                                                                        fontSize === e
+                                                                        ? "button is-link"
+                                                                        : "button is-link is-light"
+                                                                    }
+                                                                    onClick={changeFontSize(e)}
+                                                                >
+                                                                    <i 
+                                                                        className="fas fa-font"
+                                                                        style={{fontSize: e}}
+                                                                    ></i>
+                                                                </span>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                                <label className="label">
+                                                    {lang === "chs" ? "字体" : "字體"}
+                                                </label>
+                                                <div className="control">
+                                                    <div className="yukimi-buttons">
+                                                        {
+                                                            ["default", "jhenghei", "simsun", "simhei", "kaiti"]
+                                                            .map((e, i) => (
+                                                                <button
+                                                                    key={i}
+                                                                    className={
+                                                                        font === e
+                                                                        ? "button is-link"
+                                                                        : "button is-link is-light"
+                                                                    }
+                                                                    onClick={changeFont(e)}
+                                                                >
+                                                                    {
+                                                                        (() => {
+                                                                            switch(e){
+                                                                                case "default":
+                                                                                    return "默认"
+                                                                                case "simsun":
+                                                                                    return "宋体"
+                                                                                case "simhei":
+                                                                                    return "黑体"
+                                                                                case "jhenghei":
+                                                                                    return "正黑"
+                                                                                case "kaiti":
+                                                                                    return "楷体"
+                                                                                default:
+                                                                                    return "默认"
+                                                                            }
+                                                                        })()
+                                                                    }
+                                                                </button>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <p className="help">根据设备字体优先级，字体切换可能不会生效</p>
+                                            </>
+                                    )
+                                    : ""
                                 }
                             </div>
                             <div style={{height: 10}}></div>
