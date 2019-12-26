@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import YukimiContext from "./YukimiContext"
 import Markdown from "react-markdown"
 
@@ -12,7 +12,8 @@ const Yukimi = () => {
     const {
         chs, cht, lang,
         font, fontSize,
-        theme
+        theme,
+        setPanel
     } = useContext(YukimiContext)
 
 
@@ -20,37 +21,44 @@ const Yukimi = () => {
     return (
         <div>
             <YukimiSetting active={false} />
-            <article
-                className="yukimi-content"
-                style={(() => {
-                    const contentStyle = {}
-                    contentStyle.fontSize = fontSize
-                    if (font !== "default") {
-                        contentStyle.fontFamily = (() => {
-                            switch (font) {
-                                case "simsun":
-                                    return "SimSun"
-                                case "simhei":
-                                    return "SimHei"
-                                case "jhenghei":
-                                    return "Microsoft JhengHei"
-                                case "kaiti":
-                                    return "KaiTi"
-                                default:
-                                    return "SimHei"
-                            }
-                        })()
-                    }
-                    contentStyle.color = (theme === "normal" ? "black" : "white")
-                    return contentStyle
-                })()}
+            <div
+                onClick={(e) => {
+                    setPanel(null)
+                }}
             >
+                <article
+                    className="yukimi-content"
 
-                <Markdown
-                    source={lang === "chs" ? chs : cht}
-                />
+                    style={(() => {
+                        const contentStyle = {}
+                        contentStyle.fontSize = fontSize
+                        if (font !== "default") {
+                            contentStyle.fontFamily = (() => {
+                                switch (font) {
+                                    case "simsun":
+                                        return "SimSun"
+                                    case "simhei":
+                                        return "SimHei"
+                                    case "jhenghei":
+                                        return "Microsoft JhengHei"
+                                    case "kaiti":
+                                        return "KaiTi"
+                                    default:
+                                        return "SimHei"
+                                }
+                            })()
+                        }
+                        contentStyle.color = (theme === "normal" ? "black" : "white")
+                        return contentStyle
+                    })()}
+                >
 
-            </article>
+                    <Markdown
+                        source={lang === "chs" ? chs : cht}
+                    />
+
+                </article>
+            </div>
         </div>
     )
 }

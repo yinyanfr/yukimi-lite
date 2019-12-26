@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback } from 'react'
+import React, { useContext } from 'react'
 import YukimiContext from './YukimiContext'
 
 const YukimiSetting = () => {
@@ -7,10 +7,9 @@ const YukimiSetting = () => {
         lang, setLang,
         font, setFont,
         fontSize, setFontSize,
-        theme, setTheme
+        theme, setTheme,
+        panel, setPanel
     } = useContext(YukimiContext)
-
-    const [panel, setPanel] = useState(null)
 
     const changePanel = which => e => {
         if (panel === which) {

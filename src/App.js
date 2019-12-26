@@ -11,6 +11,8 @@ const App = () => {
   const [fontSize, setFontSize] = useState(localStorage.getItem("fontSize") || "100%")
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "normal")
 
+  const [panel, setPanel] = useState(null)
+
   useEffect(() => {
     fetch("/content")
       .then(res => res.json())
@@ -21,6 +23,7 @@ const App = () => {
       .catch(err => {
         console.error(err)
       })
+
   }, [])
 
   useEffect(() => {
@@ -36,7 +39,8 @@ const App = () => {
         lang, setLang,
         font, setFont,
         fontSize, setFontSize,
-        theme, setTheme
+        theme, setTheme,
+        panel, setPanel
       }}>
         <Yukimi />
       </YukimiContext.Provider>
