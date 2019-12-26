@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Yukimi from './Yukimi';
 import YukimiContext from './YukimiContext';
+import Footer from './Footer';
 
 const App = () => {
 
@@ -43,6 +44,7 @@ const App = () => {
         panel, setPanel
       }}>
         <Yukimi />
+        <Footer />
       </YukimiContext.Provider>
     </div>
   )
