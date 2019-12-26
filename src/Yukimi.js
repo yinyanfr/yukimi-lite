@@ -11,7 +11,8 @@ const Yukimi = () => {
 
     const {
         chs, cht, lang,
-        font, fontSize
+        font, fontSize,
+        theme
     } = useContext(YukimiContext)
 
 
@@ -19,27 +20,28 @@ const Yukimi = () => {
     return (
         <div>
             <YukimiSetting active={false} />
-            <div
+            <article
                 className="yukimi-content"
                 style={(() => {
                     const contentStyle = {}
                     contentStyle.fontSize = fontSize
-                    if(font !== "default"){
+                    if (font !== "default") {
                         contentStyle.fontFamily = (() => {
-                        switch(font){
-                            case "simsun":
-                                return "SimSun"
-                            case "simhei":
-                                return "SimHei"
-                            case "jhenghei":
-                                return "Microsoft JhengHei"
-                            case "kaiti":
-                                return "KaiTi"
-                            default:
-                                return "SimHei"
-                        }
-                    })()
+                            switch (font) {
+                                case "simsun":
+                                    return "SimSun"
+                                case "simhei":
+                                    return "SimHei"
+                                case "jhenghei":
+                                    return "Microsoft JhengHei"
+                                case "kaiti":
+                                    return "KaiTi"
+                                default:
+                                    return "SimHei"
+                            }
+                        })()
                     }
+                    contentStyle.color = (theme === "normal" ? "black" : "white")
                     return contentStyle
                 })()}
             >
@@ -48,7 +50,7 @@ const Yukimi = () => {
                     source={lang === "chs" ? chs : cht}
                 />
 
-            </div>
+            </article>
         </div>
     )
 }

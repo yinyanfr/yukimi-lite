@@ -6,9 +6,10 @@ const App = () => {
 
   const [chs, setChs] = useState("")
   const [cht, setCht] = useState("")
-  const [lang, setLang] = useState(localStorage.getItem("lang") || "chs")
+  const [lang, setLang] = useState(localStorage.getItem("lang") || "cht")
   const [font, setFont] = useState(localStorage.getItem("font") || "default")
   const [fontSize, setFontSize] = useState(localStorage.getItem("fontSize") || "100%")
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "normal")
 
   useEffect(() => {
     fetch("/content")
@@ -22,6 +23,10 @@ const App = () => {
       })
   }, [])
 
+  useEffect(() => {
+    document.body.style.backgroundColor = (theme === "normal" ? "white" : "black")
+  }, [theme])
+
   return (
     <div>
       <YukimiContext.Provider value={{
@@ -30,7 +35,8 @@ const App = () => {
         setCht,
         lang, setLang,
         font, setFont,
-        fontSize, setFontSize
+        fontSize, setFontSize,
+        theme, setTheme
       }}>
         <Yukimi />
       </YukimiContext.Provider>

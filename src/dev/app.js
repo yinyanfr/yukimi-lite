@@ -1,5 +1,6 @@
 const express = require("express")
 const fs = require("fs")
+const path = require("path")
 
 const app = express()
 
@@ -13,14 +14,20 @@ const getFile = (n) => new Promise((resolve, reject) => {
 app.get("/content", async (req, res) => {
     try {
         const [chs, cht] = (await Promise.all([
-            getFile("./chs.md"),
-            getFile("./cht.md")
+            getFile(path.join(__dirname, "./chs.md")),
+            getFile(path.join(__dirname, "./cht.md"))
         ])).map(e => e.toString())
 
         res.send({chs, cht})
     } catch (err) {
         res.status(400).send(err)
     }
+})
+
+app.use(express.static(path.join(__dirname, "build")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"))
 })
 
 app.listen(20200)
