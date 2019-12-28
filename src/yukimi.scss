@@ -6,7 +6,7 @@
 
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
 }
 
 .yukimi-setting {
@@ -40,6 +40,7 @@
 .yukimi-content {
   margin: 0 auto;
   width: 900px;
+  padding-top: 10px;
 }
 
 @media screen and (max-width: 900px){
@@ -81,4 +82,16 @@
   border: 1px solid white;
   background-color: black;
   color: white;
+}
+
+p {
+  line-height: 2em;
+  margin-bottom: 2em;
+  text-indent: 2em;
+}
+
+h2 {
+  font-size: 125%;
+  font-weight: bold;
+  margin-bottom: 3em;
 }

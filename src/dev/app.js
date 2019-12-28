@@ -13,12 +13,14 @@ const getFile = (n) => new Promise((resolve, reject) => {
 
 app.get("/content", async (req, res) => {
     try {
-        const [chs, cht] = (await Promise.all([
+        const [chs, cht, newchs, newcht] = (await Promise.all([
             getFile(path.join(__dirname, "./chs.md")),
-            getFile(path.join(__dirname, "./cht.md"))
+            getFile(path.join(__dirname, "./cht.md")),
+            getFile(path.join(__dirname, "./newchs.md")),
+            getFile(path.join(__dirname, "./newcht.md"))
         ])).map(e => e.toString())
 
-        res.send({chs, cht})
+        res.send({chs, cht, newchs, newcht})
     } catch (err) {
         res.status(400).send(err)
     }

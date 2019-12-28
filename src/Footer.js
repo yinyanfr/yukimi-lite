@@ -6,11 +6,11 @@ const Footer = () => {
     const { theme } = useContext(YukimiContext)
 
     return (
-        <footer class="footer" style={{
+        <footer className="footer" style={{
             backgroundColor: (theme === "normal" ? "white" : "black"),
             color: (theme === "normal" ? "black" : "white")
         }}>
-            <div class="content has-text-centered">
+            <div className="content has-text-centered">
                 <p>
                     Powered by <a href="https://github.com/yinyanfr/yukimi">Yukimi</a>.
                 </p>
