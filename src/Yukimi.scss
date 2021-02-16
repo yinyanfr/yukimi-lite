@@ -1,0 +1,34 @@
+.yukimi {
+    .md {
+        p {
+            text-indent: 2em;
+        }
+    }
+
+    .pagination {
+        text-align: center;
+    }
+
+    .header {
+        background-color: transparent;
+    }
+
+    .site-layout-background {
+        background-color: transparent;
+    }
+
+    .article {
+        display: flex;
+        justify-content: center;
+    }
+
+    .day {
+        background-color: floralwhite;
+        color: black;
+    }
+
+    .night {
+        background-color: black;
+        color: floralwhite;
+    }
+}

@@ -1,6 +1,6 @@
 {
-  "short_name": "情感夜话",
-  "name": "某喵新姬的情感夜话",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
