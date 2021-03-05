@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Pagination } from 'antd'
 import Article from './Article'
+import { useHistory, useLocation } from "react-router-dom"
+
 
 const Novel = ({novel}) => {
 
     const [page, setPage] = useState(1)
     const [text, setText] = useState(novel[page-1].content)
+    const [title, setTitle] = useState("")
+
+    const history = useHistory()
+    const location = useLocation()
+    const paths = location?.pathname.split("/")
+
+    useEffect(() => {
+        if(paths?.length){
+            setTitle(paths[1])
+            setPage(parseInt(paths[2]))
+        }
+    }, [paths])
 
     useEffect(() => {
         setTimeout(() => {
@@ -28,6 +42,7 @@ const Novel = ({novel}) => {
                     showQuickJumper
                     onChange={page => {
                         setPage(page)
+                        history.push(`/${title}/${page}`)
                     }}
                 />
             </div>

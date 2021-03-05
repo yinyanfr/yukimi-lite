@@ -1,10 +1,17 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
-const Article = ({text}) => {
+const Article = ({text, name}) => {
 
     return (
-        <ReactMarkdown className="md">{text}</ReactMarkdown>
+        <div>
+            {
+                name
+                ? <h2>{name}</h2>
+                : ""
+            }
+            <ReactMarkdown className="md">{text}</ReactMarkdown>
+        </div>
     )
 }
 

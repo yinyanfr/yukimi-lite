@@ -4,15 +4,20 @@ import novelTc from "../mock/novel-tc.json"
 import React, { useState, useEffect } from 'react'
 import { Layout, Menu, Breadcrumb, Switch, Slider } from 'antd'
 import { ReadOutlined, FontSizeOutlined, BgColorsOutlined, TranslationOutlined, SettingOutlined } from '@ant-design/icons'
+import { useHistory, useLocation } from "react-router-dom"
 
 const { SubMenu } = Menu
 const { Header, Content, Footer, Sider } = Layout
 
-const Reader = () => {
+const Reader = ({book}) => {
 
     const [night, setNight] = useState(JSON.parse(localStorage.getItem("night")) ?? false)
     const [fontSize, setFontSize] = useState(JSON.parse(localStorage.getItem("fontSize")) ?? 1)
     const [tc, setTc] = useState(JSON.parse(localStorage.getItem("tc")) ?? false)
+
+    const history = useHistory()
+    const location = useLocation()
+    const paths = location?.pathname.split("/")
 
     useEffect(() => {
         localStorage.setItem("night", night)
@@ -37,7 +42,9 @@ const Reader = () => {
                 <SubMenu key="chapter" icon={<ReadOutlined />} title="章节">
                     {
                         novel.map((e, i) => (
-                            <Menu.Item key={i}>
+                            <Menu.Item key={i} onClick={() => {
+                                history.push(`/${paths[1]}/${i + 1}`)
+                            }}>
                                 <a href="#">{e.name}</a>
                             </Menu.Item>
                         ))
@@ -89,8 +96,14 @@ const Reader = () => {
             <Layout className={night ? "night" : "day"}>
                 <Content style={{ padding: isSmallScreen ? '0 5px' : '0 50px' }}>
                     <Breadcrumb style={{ margin: '16px 10px' }}>
-                        <Breadcrumb.Item>主页</Breadcrumb.Item>
-                        <Breadcrumb.Item>立夏</Breadcrumb.Item>
+                        <Breadcrumb.Item>
+                            <a href="." onClick={() => {
+                                history.push("/")
+                            }}>
+                                主页
+                            </a>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>{book?.label}</Breadcrumb.Item>
                         <Breadcrumb.Item>1</Breadcrumb.Item>
                     </Breadcrumb>
                     {
