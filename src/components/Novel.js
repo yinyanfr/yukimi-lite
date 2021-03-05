@@ -5,11 +5,21 @@ import Article from './Article'
 const Novel = ({novel}) => {
 
     const [page, setPage] = useState(1)
+    const [text, setText] = useState(novel[page-1].content)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setText("")
+        }, 0)
+        setTimeout(() => {
+            setText(novel[page-1].content)
+        }, 50)
+    }, [page, novel])
     
 
     return (
         <div>
-            <Article text={novel[page-1].content} />
+            <Article text={text} />
             <div className="pagination">
                 <Pagination 
                     current={page}

@@ -20,6 +20,7 @@
     .article {
         display: flex;
         justify-content: center;
+        width: 100% !important;
     }
 
     .day {
@@ -30,5 +31,14 @@
     .night {
         background-color: black;
         color: floralwhite;
+    }
+
+    // .horizontal-layout {
+
+    // }
+
+    .vertical-layout {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
